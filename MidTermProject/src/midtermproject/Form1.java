@@ -81,7 +81,7 @@ public class Form1 extends javax.swing.JFrame {
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(102, 0, 0));
-        jLabel3.setText("CN ID");
+        jLabel3.setText("CM ID");
 
         jTextField2.setBackground(new java.awt.Color(204, 204, 204));
 
