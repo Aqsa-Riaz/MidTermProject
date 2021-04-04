@@ -16,6 +16,8 @@ public class MidTermProject {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        Form1 F1=new Form1();
+        
     }
     
 }
