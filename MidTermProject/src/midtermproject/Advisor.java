@@ -10,7 +10,7 @@ import java.util.ArrayList;
 /**
  *
  * @author Amiga
- */
+ *///////This class is used to handle Advisor
 public class Advisor {
 
     public Advisor(String AdvisorFirstName1, String AdvisorLastName1, String AdvisorId1, String AdCNIC1, String AdEmailId1, String DOB1) {
