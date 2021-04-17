@@ -27,7 +27,11 @@ public class Advisor {
           String DOB){
             ArrayList<Advisor> list=new ArrayList<Advisor>();
             Advisor aq= new Advisor(AdvisorFirstName,AdvisorLastName,AdvisorId,AdCNIC,AdEmailId, DOB);
-                list.add(aq);  
+                list.add(aq);
+                list.remove(aq);
+                for(int i=0; i<list.size();i++){
+                    list.set(i, aq);
+                }
                 return list;
 }
 }

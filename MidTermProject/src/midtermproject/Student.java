@@ -6,6 +6,7 @@
 package midtermproject;
 
 import java.util.ArrayList;
+import java.util.function.UnaryOperator;
 
 /**
  *
@@ -28,6 +29,10 @@ public class Student {
             ArrayList<Student> list=new ArrayList<Student>();
             Student aq= new Student(StdFirstName,StdLastName,StdId, StdCNIC,StdGender,StdEmailId, DOB);
                 list.add(aq);  
+                list.remove(aq);
+                for(int i=0; i<list.size();i++){
+                    list.set(i, aq);
+                }
                 return list;
 }
 }

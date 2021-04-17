@@ -21,5 +21,11 @@ public class Project {
     public ArrayList Project(String Project_Title, String Advisor_Name,String CM_Name){
         ArrayList<Project>list=new ArrayList<Project>();
         Project aq=new Project(Project_Title,Advisor_Name,CM_Name);
+        list.add(aq);
+        list.remove(aq);
+       for(int i=0; i<list.size();i++){
+           list.set(i, aq);
+       }
+        return list;
     }
 }

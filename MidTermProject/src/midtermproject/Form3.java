@@ -58,7 +58,7 @@ public class Form3 extends javax.swing.JFrame {
         Update = new javax.swing.JButton();
         noaction = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        Table = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -206,6 +206,11 @@ public class Form3 extends javax.swing.JFrame {
 
         Update.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         Update.setText("Update Advisor");
+        Update.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                UpdateActionPerformed(evt);
+            }
+        });
 
         noaction.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         noaction.setText("donot perform any action");
@@ -215,8 +220,8 @@ public class Form3 extends javax.swing.JFrame {
             }
         });
 
-        jTable1.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        Table.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
+        Table.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {},
                 {},
@@ -227,8 +232,8 @@ public class Form3 extends javax.swing.JFrame {
 
             }
         ));
-        jTable1.setGridColor(new java.awt.Color(51, 51, 51));
-        jScrollPane2.setViewportView(jTable1);
+        Table.setGridColor(new java.awt.Color(51, 51, 51));
+        jScrollPane2.setViewportView(Table);
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -415,14 +420,71 @@ public class Form3 extends javax.swing.JFrame {
 
     private void DeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DeleteActionPerformed
         // TODO add your handling code here
+        String AdvisorFirstName=ADFName.getText();
+        String AdvisorLastName=ADLName.getText();
+        String AdvisorId=ADID.getText();
+        String AdCNIC=ADCNIC.getText();
+        String adGender=(String) AdGender.getSelectedItem();
+        String AdEmailId=ADEmail.getText();
+        String DOB=null;
+        boolean Gender=IsValidGender(adGender);
+        boolean EmailId=IsValiEmaild(AdEmailId);
+        boolean FirstName=isValidAdvisorFirstName(AdvisorFirstName);
+        boolean LastName=isValidAdvisorLastName(AdvisorLastName);
+        boolean AdvisorCNIC=isValidCNICNum(AdCNIC);
+        boolean Id=isValidAdvisorid(AdvisorId);
+        if(Gender==true && EmailId==true
+                && FirstName==true && LastName==true
+                && AdvisorCNIC==true && Id==true){
+            
+            DeleteRow(AdvisorFirstName,AdvisorLastName, AdvisorId,
+            AdCNIC,adGender,AdEmailId,DOB);
+        }
     }//GEN-LAST:event_DeleteActionPerformed
-
+    public void DeleteRow(String AdvisorFirstName,String AdvisorLastName,String AdvisorId,
+            String AdCNIC,String adGender,String AdEmailId,String DOB){
+        int i=Table.getSelectedRow();
+        if(i>0){
+            Test.removeRow(i);
+        }
+    }
     private void noactionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_noactionActionPerformed
         // TODO add your handling code here:
         Form3 F3=new Form3();
         F3.setVisible(false);
     }//GEN-LAST:event_noactionActionPerformed
-
+     
+    private void UpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UpdateActionPerformed
+        // TODO add your handling code here:
+        String AdvisorFirstName=ADFName.getText();
+        String AdvisorLastName=ADLName.getText();
+        String AdvisorId=ADID.getText();
+        String AdCNIC=ADCNIC.getText();
+        String adGender=(String) AdGender.getSelectedItem();
+        String AdEmailId=ADEmail.getText();
+        String DOB=null;
+        boolean Gender=IsValidGender(adGender);
+        boolean EmailId=IsValiEmaild(AdEmailId);
+        boolean FirstName=isValidAdvisorFirstName(AdvisorFirstName);
+        boolean LastName=isValidAdvisorLastName(AdvisorLastName);
+        boolean AdvisorCNIC=isValidCNICNum(AdCNIC);
+        boolean Id=isValidAdvisorid(AdvisorId);
+        if(Gender==true && EmailId==true
+                && FirstName==true && LastName==true
+                && AdvisorCNIC==true && Id==true){
+            updateRow(AdvisorFirstName,AdvisorLastName,AdvisorId,
+            AdCNIC,adGender,AdEmailId,DOB);
+        }
+    }//GEN-LAST:event_UpdateActionPerformed
+   public void updateRow(String AdvisorFirstName,String AdvisorLastName,String AdvisorId,
+            String AdCNIC,String adGender,String AdEmailId,String DOB){
+          int i=Table.getSelectedRow();
+          if(i>0){
+                ArrayList<Advisor> list=new ArrayList<Advisor>();
+            Advisor aq= new Advisor(AdvisorFirstName,AdvisorLastName,AdvisorId,AdCNIC,AdEmailId, DOB);
+            list.set(i, aq);
+          }
+   }
     /**
      * @param args the command line arguments
      */
@@ -467,6 +529,7 @@ public class Form3 extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> AdGender;
     private javax.swing.JButton Add;
     private javax.swing.JButton Delete;
+    private javax.swing.JTable Table;
     private javax.swing.JButton Update;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -480,7 +543,6 @@ public class Form3 extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollBar jScrollBar1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTable jTable1;
     private javax.swing.JButton noaction;
     // End of variables declaration//GEN-END:variables
 }

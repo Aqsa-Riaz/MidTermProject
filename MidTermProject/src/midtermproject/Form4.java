@@ -19,12 +19,12 @@ public class Form4 extends javax.swing.JFrame {
         this.Test= new DefaultTableModel();
         
         initComponents();
-        Test.addColumn(FName);
-        Test.addColumn(SName);
-        Test.addColumn(UID);
-        Test.addColumn(Email);
-        Test.addColumn(Gender);
-        Test.addColumn(jComboBox1);
+        Test.addColumn("FName");
+        Test.addColumn("SName");
+        Test.addColumn("UID");
+        Test.addColumn("Email");
+        Test.addColumn("Gender");
+        Test.addColumn("Eduction");
     }
 
     /**
@@ -58,10 +58,10 @@ public class Form4 extends javax.swing.JFrame {
         jPanel4 = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
+        addbtn = new javax.swing.JButton();
+        delbtn = new javax.swing.JButton();
+        uptbtn = new javax.swing.JButton();
+        DPAbtn = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -233,23 +233,33 @@ public class Form4 extends javax.swing.JFrame {
         jTable1.setToolTipText("");
         jScrollPane2.setViewportView(jTable1);
 
-        jButton1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jButton1.setText("Add Student");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        addbtn.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        addbtn.setText("Add Student");
+        addbtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                addbtnActionPerformed(evt);
             }
         });
 
-        jButton2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jButton2.setText("Delete Student");
-        jButton2.setToolTipText("");
+        delbtn.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        delbtn.setText("Delete Student");
+        delbtn.setToolTipText("");
+        delbtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                delbtnActionPerformed(evt);
+            }
+        });
 
-        jButton3.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jButton3.setText("Update Student");
+        uptbtn.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        uptbtn.setText("Update Student");
+        uptbtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                uptbtnActionPerformed(evt);
+            }
+        });
 
-        jButton4.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jButton4.setText("Donot Perform Action");
+        DPAbtn.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        DPAbtn.setText("Donot Perform Action");
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -262,14 +272,14 @@ public class Form4 extends javax.swing.JFrame {
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addGap(18, 18, 18)
-                        .addComponent(jButton1))
+                        .addComponent(addbtn))
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(uptbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 1, Short.MAX_VALUE))
+                    .addComponent(delbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(DPAbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 1, Short.MAX_VALUE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
@@ -278,12 +288,12 @@ public class Form4 extends javax.swing.JFrame {
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 282, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(31, 31, 31)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2))
+                    .addComponent(addbtn)
+                    .addComponent(delbtn))
                 .addGap(31, 31, 31)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton3)
-                    .addComponent(jButton4))
+                    .addComponent(uptbtn)
+                    .addComponent(DPAbtn))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -394,7 +404,7 @@ public class Form4 extends javax.swing.JFrame {
         }
         return flag;
     }
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void addbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addbtnActionPerformed
         // TODO add your handling code here:
           Test.insertRow(Test.getRowCount(),new Object[]{FName.getText(),SName.getText(),
             Email.getText(),UID.getText(),Gender.getSelectedItem(),jComboBox1.getSelectedItem()
@@ -421,8 +431,71 @@ public class Form4 extends javax.swing.JFrame {
             System.out.println("Successfull");
         }
                
-    }//GEN-LAST:event_jButton1ActionPerformed
-       
+    }//GEN-LAST:event_addbtnActionPerformed
+
+    private void delbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_delbtnActionPerformed
+        // TODO add your handling code here:
+         String StdFirstName=FName.getText();
+        String StdLastName=SName.getText();
+        String StdEmailId=Email.getText();
+        String StdUniId=UID.getText();
+        String StdGender=Gender.getSelectedItem().toString();
+        String StdEducation_Level=jComboBox1.getSelectedItem().toString();
+        String CNIC_NUM=CNIC.getText();
+        String DOB=null;
+         boolean Email=IsValiEmaild(StdEmailId);
+        boolean UniId=IsValidRegNum(StdUniId);
+        boolean First_Name=isValidStdFirstName(StdFirstName);
+        boolean Last_Name=isValidStdLastName(StdLastName);
+        boolean Gender= IsValidGender(StdGender);
+        if(Email==true &&  UniId==true && First_Name==true
+                && Last_Name==true && Gender==true){
+            DeleteRow(StdFirstName,StdLastName,StdEmailId,StdEmailId,StdGender,
+                    StdEducation_Level,CNIC_NUM,DOB);
+        }   
+    }//GEN-LAST:event_delbtnActionPerformed
+      public void DeleteRow(String StdFirstName,String StdLastName,String StdEmailId,
+             String StdUniId,  String StdGender,String StdEducation_Level,String CNIC_NUM,
+             String DOB){
+                int j=jTable1.getSelectedRow();
+          if(j>=0){
+              Test.removeRow(j);
+          } 
+      }
+    private void uptbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_uptbtnActionPerformed
+        // TODO add your handling code here:
+       String StdFirstName=FName.getText();
+        String StdLastName=SName.getText();
+        String StdEmailId=Email.getText();
+        String StdUniId=UID.getText();
+        String StdGender=Gender.getSelectedItem().toString();
+        String StdEducation_Level=jComboBox1.getSelectedItem().toString();
+        String CNIC_NUM=CNIC.getText();
+        String DOB=null;
+         boolean Email=IsValiEmaild(StdEmailId);
+        boolean UniId=IsValidRegNum(StdUniId);
+        boolean First_Name=isValidStdFirstName(StdFirstName);
+        boolean Last_Name=isValidStdLastName(StdLastName);
+        boolean Gender= IsValidGender(StdGender);
+        if(Email==true &&  UniId==true && First_Name==true
+                && Last_Name==true && Gender==true){
+            updateRow(StdFirstName,StdLastName,StdEmailId,
+             StdUniId,StdGender,StdEducation_Level,CNIC_NUM,
+              DOB);
+        }   
+        
+    }//GEN-LAST:event_uptbtnActionPerformed
+     public void updateRow(String StdFirstName,String StdLastName,String StdEmailId,
+             String StdUniId,  String StdGender,String StdEducation_Level,String CNIC_NUM,
+             String DOB){
+          int i=jTable1.getSelectedRow();
+          if(i>0){
+               ArrayList<Student> list=new ArrayList<Student>();
+            Student aq= new Student(StdFirstName,StdLastName,
+                    StdUniId,StdEducation_Level ,StdGender,StdEmailId, DOB);
+            list.set(i, aq);
+          }
+     }
     /**
      * @param args the command line arguments
      */
@@ -461,15 +534,14 @@ public class Form4 extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField Age;
     private javax.swing.JTextField CNIC;
+    private javax.swing.JButton DPAbtn;
     private javax.swing.JTextField Email;
     private javax.swing.JTextField FName;
     private javax.swing.JComboBox<String> Gender;
     private javax.swing.JTextField SName;
     private javax.swing.JTextField UID;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
+    private javax.swing.JButton addbtn;
+    private javax.swing.JButton delbtn;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel12;
@@ -485,5 +557,6 @@ public class Form4 extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable jTable1;
+    private javax.swing.JButton uptbtn;
     // End of variables declaration//GEN-END:variables
 }
