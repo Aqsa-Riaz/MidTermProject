@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 package midtermproject;
-
+/////////////frmclass3
 /**
  *
  * @author Amiga
