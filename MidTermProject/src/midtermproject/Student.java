@@ -12,6 +12,8 @@ import java.util.function.UnaryOperator;
  *
  * @author Amiga
  */
+
+///// s tudent classssss
 public class Student {
 
     public Student(String StdFirstName1, String StdLastName1, String StdId1, String StdCNIC1, String StdGender1, String StdEmailId1, String DOB1) {
